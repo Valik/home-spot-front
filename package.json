@@ -2,8 +2,8 @@
   "name": "home-spot",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack --mode production",
-    "start": "lite-server"
+    "start": "webpack-dev-server --open --mode development",
+    "build": "webpack --mode production"
   },
   "dependencies": {
     "react": "^16.10.2",
@@ -15,7 +15,11 @@
     "@babel/preset-env": "^7.6.3",
     "@babel/preset-react": "^7.6.3",
     "babel-loader": "^8.0.6",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "prop-types": "^15.7.2",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.9"
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
   }
 }
