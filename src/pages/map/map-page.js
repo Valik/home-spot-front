@@ -27,7 +27,7 @@ class MapPage extends Component {
 
   render() {
 
-    const position = [51.505, -0.09]
+    const position = [59.95, 30.31]
 
     const { classes } = this.props;
     return (
@@ -37,7 +37,7 @@ class MapPage extends Component {
         <Map center={position} zoom={13} className={classes.leafletContainer}>
             <TileLayer
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.png"
             />
             <Marker position={position}>
               <Popup>
