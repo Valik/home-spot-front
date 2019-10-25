@@ -1,19 +1,13 @@
+// @flow
+
 import React, { Component } from "react";
 
-import ReactDOM from "react-dom";
-import { withRouter } from 'react-router-dom';
 import TopBar from "../../components/app-bar"
-
-import { Map, Marker, Popup, TileLayer, GeoJSON } from 'react-leaflet';
+import MapWrapper from "../../components/map-wrapper"
 
 import { withStyles } from '@material-ui/styles';
 
 const useStyles = theme => ({
-  leafletContainer: {
-    "height": "calc(100vh - 64px)",
-    "width": '100%',
-    "margin": '0 auto',
-  },
 });
 
 class MapPage extends Component {
@@ -34,19 +28,7 @@ class MapPage extends Component {
 
       <React.Fragment>
         <TopBar></TopBar>
-        <Map center={position} zoom={13} className={classes.leafletContainer}>
-            <TileLayer
-              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-              url="https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}{r}.png"
-            />
-            <Marker position={position}>
-              <Popup>
-                <span>
-                  A pretty CSS3 popup. <br /> Easily customizable.
-                </span>
-              </Popup>
-            </Marker>
-        </Map>
+        <MapWrapper />
       </React.Fragment>
     );
   }
