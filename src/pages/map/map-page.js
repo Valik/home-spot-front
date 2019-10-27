@@ -10,13 +10,18 @@ import { withStyles } from '@material-ui/styles';
 const useStyles = theme => ({
 });
 
-class MapPage extends Component {
+type State = {
+  prop1: string,
+}
+
+type Props = {
+  classes: any,
+}
+
+class MapPage extends Component<Props, State> {
+
   constructor() {
     super();
-
-    this.state = {
-      prop1: ""
-    };
   }
 
   render() {

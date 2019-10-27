@@ -1,10 +1,10 @@
 // @flow
 
 import React, { createRef, Component } from "react";
-
 import { Map, Marker, Popup, TileLayer, GeoJSON } from 'react-leaflet';
-
-import { withStyles } from '@material-ui/styles';
+import { withStyles } from "@material-ui/styles";
+import withServices from "../services/service-injection";
+import HttpService from "../services/http-service";
 
 const useStyles = theme => ({
   leafletContainer: {
@@ -14,7 +14,6 @@ const useStyles = theme => ({
   },
 });
 
-
 type State = {
   hasLocation: boolean,
   latlng: {
@@ -23,7 +22,12 @@ type State = {
   },
 }
 
-class MapWrapper extends Component<{}, State> {
+type Props = {
+  classes: any,
+  httpService: HttpService
+}
+
+class MapWrapper extends Component<Props, State> {
   state = {
     hasLocation: false,
     latlng: {
@@ -34,8 +38,10 @@ class MapWrapper extends Component<{}, State> {
 
   mapRef = createRef<Map>()
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    console.log(this.props.httpService);
   }
 
   handleClick = () => {
@@ -81,4 +87,4 @@ class MapWrapper extends Component<{}, State> {
   }
 }
 
-export default withStyles(useStyles)(MapWrapper);
+export default withServices(withStyles(useStyles)(MapWrapper));

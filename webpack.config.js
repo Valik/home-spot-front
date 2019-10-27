@@ -1,7 +1,17 @@
+const webpack = require('webpack');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
-module.exports = (envOptions) => {
+
+module.exports = (env) => {
+  env = env || {};
+
+  const envKeys = Object.keys(env).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(env[next]);
+    return prev;
+  }, {});
+
   return {
     devtool: "source-map",
+
     module: {
       rules: [
         {
@@ -18,16 +28,33 @@ module.exports = (envOptions) => {
               loader: "html-loader"
             }
           ]
+        },
+        {
+          test: /.*manifest\.json$/,
+          loader: 'file-loader',
+          type: 'javascript/auto',
+          options: {
+            name: '[name].[ext]'
+          },
+        },
+        {
+          test: /.*mockdata.*\.json$/,
+          loader: 'file-loader',
+          type: 'javascript/auto',
+          options: {
+            name: '/mockdata/[name].[ext]'
+          },
         }
       ]
     },
     plugins: [
+      new webpack.DefinePlugin(envKeys),
       new HtmlWebPackPlugin({
         template: "./public/index.html",
         filename: "./index.html",
         favicon: "./public/favicon.ico",
         publicPath: "./public"
-      })
+      }),
     ]
   }
 };
