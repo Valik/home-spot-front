@@ -30,19 +30,11 @@ module.exports = (env) => {
           ]
         },
         {
-          test: /.*manifest\.json$/,
+          test: /\.json$/,
           loader: 'file-loader',
           type: 'javascript/auto',
           options: {
             name: '[name].[ext]'
-          },
-        },
-        {
-          test: /.*mockdata.*\.json$/,
-          loader: 'file-loader',
-          type: 'javascript/auto',
-          options: {
-            name: '/mockdata/[name].[ext]'
           },
         }
       ]
@@ -53,7 +45,7 @@ module.exports = (env) => {
         template: "./public/index.html",
         filename: "./index.html",
         favicon: "./public/favicon.ico",
-        publicPath: "./public"
+        publicPath: "./dist"
       }),
     ]
   }

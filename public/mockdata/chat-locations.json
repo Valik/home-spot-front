@@ -2,16 +2,20 @@
   "hasMore": true,
   "items": [
     {
-      "id": 71077
+      "latitude": 59.95,
+      "longitude": 30.31
     },
     {
-      "id": 71077
+      "latitude": 59.951,
+      "longitude": 30.311
     },
     {
-      "id": 71077
+      "latitude": 59.952,
+      "longitude": 30.312
     },
     {
-      "id": 71077
+      "latitude": 59.953,
+      "longitude": 30.311
     }
   ]
 }

@@ -20,6 +20,7 @@ type State = {
     lat: number,
     lng: number,
   },
+  chatLocations: [],
 }
 
 type Props = {
@@ -34,6 +35,7 @@ class MapWrapper extends Component<Props, State> {
       lat: 59.95,
       lng: 30.31,
     },
+    chatLocations: [],
   }
 
   mapRef = createRef<Map>()
@@ -44,19 +46,32 @@ class MapWrapper extends Component<Props, State> {
     console.log(this.props.httpService);
   }
 
+  componentWillMount(){
+      console.log("componentWillMount()");
+
+      this.props.httpService.getChatLocations().then(x => {
+        this.setState(state => {
+            state.chatLocations = x.data.items;
+            return state;
+        });
+      });
+  }
+
   handleClick = () => {
     const map = this.mapRef.current
-    if (map != null) {
+    if (map != null && !this.state.hasLocation) {
       map.leafletElement.locate();
     }
     console.log(this.mapRef);
   }
 
   handleLocationFound = (e: Object) => {
-    this.setState({
-      hasLocation: true,
-      latlng: e.latlng,
-    })
+    if (!this.state.hasLocation) {
+      this.setState(state => {
+          state.hasLocation = true;
+          return state;
+      });
+    }    
   }
 
   render() {
@@ -75,13 +90,17 @@ class MapWrapper extends Component<Props, State> {
               attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={position}>
-              <Popup>
-                <span>
-                  A pretty CSS3 popup. <br /> Easily customizable.
-                </span>
-              </Popup>
-            </Marker>
+            {
+              this.state.chatLocations.map(x => 
+                <Marker key={x.latitude + x.longitude} position={[x.latitude, x.longitude]}>
+                  <Popup>
+                    <span>
+                      A pretty CSS3 popup. <br /> Easily customizable.
+                    </span>
+                  </Popup>
+                </Marker>
+              )
+            }
         </Map>
     );
   }
