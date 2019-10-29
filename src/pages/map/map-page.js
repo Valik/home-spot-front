@@ -4,6 +4,7 @@ import React, { Component } from "react";
 
 import TopBar from "../../components/app-bar"
 import MapWrapper from "../../components/map-wrapper"
+import MapYandexWrapper from "../../components/map-yandex-wrapper"
 
 import { withStyles } from '@material-ui/styles';
 
@@ -33,7 +34,7 @@ class MapPage extends Component<Props, State> {
 
       <React.Fragment>
         <TopBar></TopBar>
-        <MapWrapper />
+        <MapYandexWrapper />
       </React.Fragment>
     );
   }

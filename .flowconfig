@@ -1,5 +1,5 @@
 [ignore]
-<PROJECT_ROOT>/node_modules/react-leafleat/lib/.*\.js
+<PROJECT_ROOT>/node_modules/react-leafleat/lib/.*\.js.flow
 
 [include]
 
