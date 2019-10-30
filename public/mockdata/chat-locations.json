@@ -2,20 +2,19 @@
   "hasMore": true,
   "items": [
     {
-      "latitude": 59.95,
-      "longitude": 30.31
+      "address": "Россия, Санкт-Петербург, Юнтоловский проспект, 45к2",
+      "latitude": 60.031256,
+      "longitude": 30.138675
     },
     {
-      "latitude": 59.951,
-      "longitude": 30.311
+      "address": "Россия, Санкт-Петербург, Юнтоловский проспект, 47к3",
+      "latitude": 60.030946,
+      "longitude": 30.141586
     },
     {
-      "latitude": 59.952,
-      "longitude": 30.312
-    },
-    {
-      "latitude": 59.953,
-      "longitude": 30.311
+      "address": "Россия, Санкт-Петербург, Юнтоловский проспект, 51к1",
+      "latitude": 60.033283,
+      "longitude": 30.143239
     }
   ]
 }

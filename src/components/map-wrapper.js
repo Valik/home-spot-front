@@ -1,5 +1,3 @@
-// @flow
-
 import React, { createRef, Component } from "react";
 import { Map, Marker, Popup, TileLayer, GeoJSON } from 'react-leaflet';
 import { withStyles } from "@material-ui/styles";
@@ -14,21 +12,7 @@ const useStyles = theme => ({
   },
 });
 
-type State = {
-  hasLocation: boolean,
-  latlng: {
-    lat: number,
-    lng: number,
-  },
-  chatLocations: [],
-}
-
-type Props = {
-  classes: any,
-  httpService: HttpService
-}
-
-class MapWrapper extends Component<Props, State> {
+class MapWrapper extends Component {
   state = {
     hasLocation: false,
     latlng: {
@@ -38,7 +22,7 @@ class MapWrapper extends Component<Props, State> {
     chatLocations: [],
   }
 
-  mapRef = createRef<Map>()
+  mapRef = createRef()
 
   constructor(props) {
     super(props);
@@ -65,7 +49,7 @@ class MapWrapper extends Component<Props, State> {
     console.log(this.mapRef);
   }
 
-  handleLocationFound = (e: Object) => {
+  handleLocationFound = (e) => {
     if (!this.state.hasLocation) {
       this.setState(state => {
           state.hasLocation = true;

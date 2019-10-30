@@ -1,5 +1,3 @@
-// @flow
-
 import React, { Component } from "react";
 
 import TopBar from "../../components/app-bar"
@@ -11,15 +9,7 @@ import { withStyles } from '@material-ui/styles';
 const useStyles = theme => ({
 });
 
-type State = {
-  prop1: string,
-}
-
-type Props = {
-  classes: any,
-}
-
-class MapPage extends Component<Props, State> {
+class MapPage extends Component {
 
   constructor() {
     super();
