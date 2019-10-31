@@ -7,7 +7,7 @@ import MapYandexWrapper from '../../components/pages/address-select/map-yandex-w
 class AddressSelectPage extends Component {
   render() {
     return <Fragment>
-      <TopBar></TopBar>
+      <TopBar />
       <MapYandexWrapper />
     </Fragment>;
   }
