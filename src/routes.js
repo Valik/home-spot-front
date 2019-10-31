@@ -1,11 +1,11 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import MapPage from './pages/map/map-page'
+import AddressSelectPage from './pages/address-select'
 
-export default props => (
-  <Router>
-      <Switch>
-        <Route exact path='/' component={ MapPage } />
-      </Switch>
-  </Router>
-)
+export default function Routes() {
+  return <Router>
+    <Switch>
+      <Route exact path="/" component={ AddressSelectPage } />
+    </Switch>
+  </Router>;
+}
