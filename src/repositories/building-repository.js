@@ -7,12 +7,11 @@ export class Building {
 }
 
 export default class BuildingRepository {
-  static baseUrl = 'http://localhost:3001/api/v1/buildings';
+  static baseUrl = '/api/v1/buildings';
 
   static index(boundary: {}) {
     http.get(this.baseUrl, boundary)
       .then((response) => {
-
         return response['buildings'].map((b) => {
           return new Building(b);
         })
